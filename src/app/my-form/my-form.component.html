@@ -1,0 +1,31 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div *ngFor="let control of formControls">
+      <label>{{ control.label }}:</label>
+      <div [ngSwitch]="control.type">
+        <input *ngSwitchCase="'Text'" type="text" formControlName="{{control.label}}" />
+        <input *ngSwitchCase="'Numeric'" type="number" formControlName="{{control.label}}" />
+        <div *ngSwitchCase="'RadioButton'">
+          <div *ngFor="let subItem of control.subItems">
+            <label>
+              <input type="radio" formControlName="{{control.label}}" [value]="subItem.label" />
+              {{ subItem.label }}
+            </label>
+          </div>
+        </div>
+        <div *ngSwitchCase="'Single Choice'">
+          <select formControlName="{{control.label}}">
+            <option *ngFor="let subItem of control.subItems" [value]="subItem.label">{{ subItem.label }}</option>
+          </select>
+        </div>
+      </div>
+    <div class="error" *ngIf="myForm.controls[control.label].invalid && (myForm.controls[control.label].dirty || myForm.controls[control.label].touched)">
+      <div *ngIf="myForm.get(control.label)?.hasError('required')">{{ control.label }} is required</div>
+      <div *ngIf="myForm.get(control.label)?.hasError('maxlength')">Maximum length is {{ control.maxLength }}</div>
+      <div *ngIf="myForm.get(control.label)?.hasError('minlength')">Minimum length is {{ control.minLength }}</div>
+      <div *ngIf="myForm.get(control.label)?.hasError('max')">Maximum value is {{ control.maxValue }}</div>
+      <div *ngIf="myForm.get(control.label)?.hasError('min')">Minimum value is {{ control.minValue }}</div>
+      <div *ngIf="myForm.get(control.label)?.hasError('pattern')">Invalid input</div>
+  </div>
+  </div>
+  <button type="submit" >Submit</button>
+</form>
