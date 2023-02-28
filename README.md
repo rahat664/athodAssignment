@@ -1,27 +1,28 @@
-# AthodAssignment
+## Development
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+This project is built using Angular 15 for the form elements.
 
-## Development server
+The main code for the dynamic form generation is in the `app/my-form` directory. The `my-form` component reads the `form.json` file and dynamically generates the form based on the JSON object.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The `form-field` component is used to generate individual form fields based on the field type and properties defined in the JSON object.
 
-## Code scaffolding
+The `form-control.service` provides the validation and error messages for the form fields based on the field type and properties.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The `app.component` is the root component that renders the dynamic form.
 
-## Build
+There are provides a json for the form controls and that is stored in the `app/model/formscontrols` directory.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Future Development
+There are several potential improvements that can be made to this project, including:
 
-## Running unit tests
+-Adding more field types such as file upload and sliders.
+-Adding support for nested forms and form arrays.
+-Improving the validation and error handling for form fields.
+-Adding form submission and data persistence capabilities.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Conclusion
+This project demonstrates how you can dynamically generate an Angular form based on a JSON object. With a little bit of configuration, you can easily generate complex forms with various input types and properties. If you have any questions or feedback, feel free to open an issue or pull request.
 
-## Running end-to-end tests
+## Live link of the project
+[This is an external link to athod assignment](https://athod-assignment-rahat664.vercel.app/)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
