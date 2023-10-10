@@ -18,7 +18,7 @@
           </select>
         </div>
       </div>
-    <div class="error" *ngIf="myForm.controls[control.label].invalid && (myForm.controls[control.label].dirty || myForm.controls[control.label].touched)">
+    <div class="error 404" *ngIf="myForm.controls[control.label].invalid && (myForm.controls[control.label].dirty || myForm.controls[control.label].touched)">
       <div *ngIf="myForm.get(control.label)?.hasError('required')">{{ control.label }} is required</div>
       <div *ngIf="myForm.get(control.label)?.hasError('maxlength')">Maximum length is {{ control.maxLength }}</div>
       <div *ngIf="myForm.get(control.label)?.hasError('minlength')">Minimum length is {{ control.minLength }}</div>
